@@ -4,7 +4,7 @@
 #
 Name     : R-expint
 Version  : 0.1.6
-Release  : 27
+Release  : 28
 URL      : https://cran.r-project.org/src/contrib/expint_0.1-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/expint_0.1-6.tar.gz
 Summary  : Exponential Integral and Incomplete Gamma Function
@@ -14,8 +14,11 @@ Requires: R-expint-lib = %{version}-%{release}
 BuildRequires : buildreq-R
 
 %description
-# expint
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/expint)](https://cran.r-project.org/package=expint) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/expint)
+Ei(x), and the incomplete gamma function G(a, x) defined for
+  negative values of its first argument. The package also gives easy
+  access to the underlying C routines through an API; see the package
+  vignette for details. A test package included in sub-directory
+  example_API provides an implementation. C routines derived from the
 
 %package lib
 Summary: lib components for the R-expint package.
@@ -27,21 +30,22 @@ lib components for the R-expint package.
 
 %prep
 %setup -q -c -n expint
+cd %{_builddir}/expint
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1575562817
+export SOURCE_DATE_EPOCH=1589516733
 
 %install
-export SOURCE_DATE_EPOCH=1575562817
+export SOURCE_DATE_EPOCH=1589516733
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
