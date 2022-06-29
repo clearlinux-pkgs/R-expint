@@ -4,7 +4,7 @@
 #
 Name     : R-expint
 Version  : 0.1.7
-Release  : 44
+Release  : 45
 URL      : https://cran.r-project.org/src/contrib/expint_0.1-7.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/expint_0.1-7.tar.gz
 Summary  : Exponential Integral and Incomplete Gamma Function
